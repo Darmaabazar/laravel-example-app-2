@@ -20,7 +20,7 @@
             </form>
     
             <div class="text-end">
-              <button type="button" class="btn btn-outline-dark me-2">Search</button>
+              <button class="btn btn-outline-dark me-2">Search</button>
             </div>
           </div>
         </div>

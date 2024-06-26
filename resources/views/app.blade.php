@@ -19,5 +19,16 @@
 
 
     <script src="{{asset('assets/js/custom.js')}}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    @if (Session::has('message'))
+        <script>
+            Swal.fire({
+                title: "{{Session::get('message')}}",
+                text: "You clicked the button!",
+                icon: "success"
+            });
+        </script>
+    @endif
 </body>
 </html>
