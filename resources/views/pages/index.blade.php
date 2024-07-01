@@ -38,6 +38,14 @@
                                         <td>{{$item->created_at}}</td>
                                         <td>{{$item->updated_at}}</td>
                                         <td>{{$item->action_at}}</td>
+                                        <td>
+                                            <a href="{{url('post/edit/' . $item->id)}}" class="btn btn-warning">EDIT</a>
+                                            <form action="{{'/post/delete/' . $item->id}}" method="POST" onclick="return confirm('Are you sure delete this post?')">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger">DELETE</button>
+                                            </form>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>

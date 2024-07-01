@@ -15,8 +15,15 @@ use App\Http\Controllers\PostController;
 */
 
 Route::get('/posts', [PostController::class, 'index']);
+
 Route::get('/posts/create', [PostController::class, 'create']);
 Route::post('/post', [PostController::class, 'store']);
+
+Route::get('/post/edit/{id}', [PostController::class, 'edit']);
+Route::put('/post/{id}', [PostController::class, 'update']);
+
+
+Route::delete('/post/delete/{id}', [PostController::class, 'destroy']);
 
 // Route::get('/second', function () {
 //     return view('pages.second');
