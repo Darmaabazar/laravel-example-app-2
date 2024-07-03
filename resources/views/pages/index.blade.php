@@ -21,11 +21,13 @@
                                 <tr>
                                     <th scope="col">ID</th>
                                     <th scope="col">Title</th>
+                                    <th scope="col">Image</th>
                                     <th scope="col">Description</th>
                                     <th scope="col">Status</th>
                                     <th scope="col">Created at</th>
                                     <th scope="col">Updated at</th>
                                     <th scope="col">Action</th>
+                                    
                                 </tr>
                             </thead>
                             <tbody>
@@ -33,11 +35,19 @@
                                     <tr>
                                         <td>{{$item->id}}</td>
                                         <td>{{$item->title}}</td>
+                                        <td>
+                                            @if ($item->image)
+                                                <img src="{{asset($item->image)}}" alt="Post image" width="100">
+                                            @else
+                                                No Image
+                                            @endif
+                                        </td>
                                         <td>{{$item->description}}</td>
                                         <td>{{$item->status}}</td>
                                         <td>{{$item->created_at}}</td>
                                         <td>{{$item->updated_at}}</td>
                                         <td>{{$item->action_at}}</td>
+                                        
                                         <td>
                                             <a href="{{url('post/edit/' . $item->id)}}" class="btn btn-warning">EDIT</a>
                                             <form action="{{'/post/delete/' . $item->id}}" method="POST" onclick="return confirm('Are you sure delete this post?')">

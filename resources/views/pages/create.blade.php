@@ -12,7 +12,7 @@
                         </h4>
                     </div>
                     <div class="card-body">
-                        <form action="{{url('/post')}}" method="POST">
+                        <form action="{{url('/post')}}" method="POST" enctype="multipart/form-data">
                             {{-- laravel deer post huselt hiij bga bol zaawal CSRF bichne(ene ni ugugdluudiig nuutslana) --}}
                             {{-- Cross Site Requiest Forgery --}}
                             @csrf
@@ -31,6 +31,15 @@
                                     <small class="text-danger">{{$message}}</small>
                                 @enderror
                             </div>
+
+                            <div class="mb-3">
+                                <label for="">Upload Image</label>
+                                <input type="file" name="image" class="form-control">
+                                @error('image')
+                                    <small class="text-danger">{{$message}}</small>
+                                @enderror
+                            </div>
+
                             <div class="mb-3">
                                 <label for="">Is Public or Private</label>
                                 <input type="checkbox" name="status" {{old('status') ? 'checked' : ''}}>

@@ -25,6 +25,8 @@ Route::put('/post/{id}', [PostController::class, 'update']);
 
 Route::delete('/post/delete/{id}', [PostController::class, 'destroy']);
 
+Route::get('/posts/search', [PostController::class, 'search']);
+
 // Route::get('/second', function () {
 //     return view('pages.second');
 // });

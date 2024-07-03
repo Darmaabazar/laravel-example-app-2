@@ -15,13 +15,10 @@
               <li><a href="#" class="nav-link px-2 text-black">About</a></li>
             </ul>
     
-            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-              <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
+            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 d-flex" role="search" method="GET" action="{{url('posts/search/')}}">
+              <input name="query" type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
+              <button class="btn btn-outline-dark me-2" type="submit">Search</button>
             </form>
-    
-            <div class="text-end">
-              <button class="btn btn-outline-dark me-2">Search</button>
-            </div>
           </div>
         </div>
     </header>

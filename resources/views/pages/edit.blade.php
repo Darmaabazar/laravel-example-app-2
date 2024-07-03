@@ -12,7 +12,7 @@
                         </h4>
                     </div>
                     <div class="card-body">
-                        <form action="{{url('/post/' . $post->id)}}" method="POST">
+                        <form action="{{url('/post/' . $post->id)}}" method="POST" enctype="multipart/form-data">
                             {{-- laravel deer post huselt hiij bga bol zaawal CSRF bichne(ene ni ugugdluudiig nuutslana) --}}
                             {{-- Cross Site Requiest Forgery --}}
                             @csrf
@@ -25,6 +25,7 @@
                                     <small class="text-danger">{{$message}}</small>
                                 @enderror
                             </div>
+
                             <div class="mb-3">
                                 <label for="">Description</label>
                                 <textarea class="form-control" name="description">{{$post->description}}</textarea>
@@ -32,10 +33,21 @@
                                     <small class="text-danger">{{$message}}</small>
                                 @enderror
                             </div>
+
+                            <div class="mb-3">
+                                <label for="">Upload Image</label>
+                                <input type="file" name="image" class="form-control">
+                                <img src="{{asset($post->image)}}" alt="image" width="100">
+                                @error('image')
+                                    <small class="text-danger">{{$message}}</small>
+                                @enderror
+                            </div>
+
                             <div class="mb-3">
                                 <label for="">Is Public or Private</label>
                                 <input type="checkbox" name="status" {{$post->status ? 'checked' : ''}}>
                             </div>
+
                             <div class="mb-3">
                                 <button type="submit" class="btn btn-primary">Update</button>
                             </div>
